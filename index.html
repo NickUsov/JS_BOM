@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS BOM</title>
+</head>
+<body>
+    <!-- 1 ************************************************************** -->
+    <!-- <h3 class="head">0</h3>
+    <button>Нажми меня</button>
+    <script>
+        let btn = document.getElementsByTagName('button')[0];
+        btn.onclick = function() {
+            let i = 0;
+            let head = document.getElementsByClassName('head')[0];
+            setInterval(()=>{      
+                head.innerHTML = i++;
+                
+		    }, 1000);
+      }
+    </script> -->
+    
+    <!-- 2 ************************************************************** -->
+    <h3 class="head">0</h3>
+    <button id="btn1">Start</button>
+    <button id="btn2">Stop</button>
+    <script>
+        let head = document.getElementsByClassName('head')[0];
+        let btn1 = document.getElementById('btn1');
+        let i = 0;
+        let tmr;
+        
+        btn1.onclick = function() {
+            
+         tmr = setInterval(()=>{      
+                head.innerHTML = i++;
+		    }, 1000);
+      }
+      btn2.onclick = function() {
+            clearInterval(tmr);
+      }
+    </script>
+    <!-- <style>
+        ul {
+            color: black;
+        }
+        li{
+            position: relative;
+        }
+    </style>
+    <div id="carousel" class="carousel">
+        <button class="arrow prev">⇦</button>
+        <div class="gallery">
+          <ul class="images">
+            <li class="li"><img src="https://js.cx/carousel/1.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/2.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/3.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/4.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/5.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/6.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/7.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/8.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/9.png"></li>
+            <li class="li"><img src="https://js.cx/carousel/10.png"></li>
+          </ul>
+        </div>
+        <button class="arrow next">⇨</button>
+      </div>
+      <script>
+        /* этот код помечает картинки, для удобства разработки */
+        var lis = document.getElementsByTagName('li');
+        // for (var i = 0; i < lis.length; i++) {
+        // //   lis[i].style.position = 'relative';
+        //   var span = document.createElement('span');
+        //   span.style.cssText = 'position:absolute;left:0;top:0';
+        //   span.innerHTML = i + 1;
+        //   lis[i].appendChild(span);
+        // }
+        var width = 130; // ширина изображения
+        var count = 3; // количество изображений
+    
+        var carousel = document.getElementById('carousel');
+        var list = carousel.querySelector('.images');
+        var listElems = carousel.querySelectorAll('');
+    
+        var position = 0; // текущий сдвиг влево
+    
+        carousel.querySelector('.prev').onclick = function() {
+          // сдвиг влево
+          // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+            position = Math.min(position + width * count, 0);
+            let style = list.style;
+            style.marginLeft = position + 'px';
+            //list.style.marginLeft = position + 'px';
+        };
+    
+        carousel.querySelector('.next').onclick = function() {
+          // сдвиг вправо
+          // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+          position = Math.max(position - width * count, -width * (listElems.length - count));
+          list.style.marginLeft = position + 'px';
+        };
+      </script> -->
+</body>
+</html>
