@@ -21,7 +21,9 @@
     </script> -->
     
     <!-- 2 ************************************************************** -->
-    <h3 class="head">0</h3>
+   
+   
+    <!-- <h3 class="head">0</h3>
     <button id="btn1">Start</button>
     <button id="btn2">Stop</button>
     <script>
@@ -39,67 +41,72 @@
       btn2.onclick = function() {
             clearInterval(tmr);
       }
-    </script>
+    </script> -->
+
+    <!-- 3 *********************************************************************** -->
+
+    <!-- <h5 class="head">60</h5>
+    <button id="btn1">Stop</button>
+    <p></p>
+    <script>
+        let head = document.getElementsByClassName('head')[0];
+        let btn1 = document.getElementById('btn1');
+        let paragraph = document.getElementsByTagName('p')[0];
+        let i = 60;           
+        let tmr = setInterval(()=>{      
+                
+                if(i == 0) {
+                  paragraph.innerHTML = 'Обратный отсчет завершен';
+                  clearInterval(tmr);
+                }
+                head.innerHTML = i--;
+		          }, 1000);
+      btn1.onclick = function() {
+        paragraph.innerHTML = 'Обратный отсчет завершен';
+        clearInterval(tmr);
+      }
+    </script> -->
+
+    <!-- 4 ************************************************************************** -->
+
+
     <!-- <style>
-        ul {
-            color: black;
-        }
-        li{
-            position: relative;
-        }
-    </style>
-    <div id="carousel" class="carousel">
-        <button class="arrow prev">⇦</button>
-        <div class="gallery">
-          <ul class="images">
-            <li class="li"><img src="https://js.cx/carousel/1.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/2.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/3.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/4.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/5.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/6.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/7.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/8.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/9.png"></li>
-            <li class="li"><img src="https://js.cx/carousel/10.png"></li>
-          </ul>
-        </div>
-        <button class="arrow next">⇨</button>
-      </div>
+      #slides {
+        position: relative;
+        list-style-type: none;
+      }
+ 
+      .slide {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        opacity: 0;
+        z-index: 1;
+        transition: opacity 1s;
+      }
+ 
+      .showing {
+        opacity: 1;
+        z-index: 2;
+      }
+    </style> 
+    <ul id="slides">
+        <li class="slide showing"><img src="https://js.cx/carousel/1.png"></li>
+        <li class="slide"><img src="https://js.cx/carousel/2.png"></li>
+        <li class="slide"><img src="https://js.cx/carousel/3.png"></li>
+        <li class="slide"><img src="https://js.cx/carousel/4.png"></li>
+        <li class="slide"><img src="https://js.cx/carousel/5.png"></li>
+    </ul>
       <script>
-        /* этот код помечает картинки, для удобства разработки */
-        var lis = document.getElementsByTagName('li');
-        // for (var i = 0; i < lis.length; i++) {
-        // //   lis[i].style.position = 'relative';
-        //   var span = document.createElement('span');
-        //   span.style.cssText = 'position:absolute;left:0;top:0';
-        //   span.innerHTML = i + 1;
-        //   lis[i].appendChild(span);
-        // }
-        var width = 130; // ширина изображения
-        var count = 3; // количество изображений
-    
-        var carousel = document.getElementById('carousel');
-        var list = carousel.querySelector('.images');
-        var listElems = carousel.querySelectorAll('');
-    
-        var position = 0; // текущий сдвиг влево
-    
-        carousel.querySelector('.prev').onclick = function() {
-          // сдвиг влево
-          // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-            position = Math.min(position + width * count, 0);
-            let style = list.style;
-            style.marginLeft = position + 'px';
-            //list.style.marginLeft = position + 'px';
-        };
-    
-        carousel.querySelector('.next').onclick = function() {
-          // сдвиг вправо
-          // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-          position = Math.max(position - width * count, -width * (listElems.length - count));
-          list.style.marginLeft = position + 'px';
-        };
+        let slides = document.querySelectorAll('#slides .slide');
+        let currentSlide = 0;
+        let slideInterval = setInterval(nextSlide, 2000);
+        function nextSlide() {
+          slides[currentSlide].className = 'slide';
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].className = 'slide showing';
+        }
       </script> -->
+      
 </body>
 </html>
