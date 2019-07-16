@@ -53,15 +53,14 @@
         let btn1 = document.getElementById('btn1');
         let paragraph = document.getElementsByTagName('p')[0];
         let i = 60;           
-        let tmr = setInterval(()=>{      
-                
+        let tmr = setInterval(()=>{           
                 if(i == 0) {
                   paragraph.innerHTML = 'Обратный отсчет завершен';
                   clearInterval(tmr);
                 }
                 head.innerHTML = i--;
 		          }, 1000);
-      btn1.onclick = function() {
+        btn1.onclick = function() {
         paragraph.innerHTML = 'Обратный отсчет завершен';
         clearInterval(tmr);
       }
@@ -108,5 +107,88 @@
         }
       </script> -->
       
+      <!-- 5 ********************************************************************* -->
+      
+      <!-- <style>
+        .gallery {
+          width: 380px;
+          overflow: hidden;
+        }
+        button {
+          width: 100px;
+          margin: 40px;
+        }
+      </style>
+      <div class="carousel">
+        <div class="gallery" style="display: flex;"> 
+            <img src="https://js.cx/carousel/1.png">
+            <img src="https://js.cx/carousel/2.png">
+            <img src="https://js.cx/carousel/3.png">
+            <img src="https://js.cx/carousel/4.png">
+            <img src="https://js.cx/carousel/5.png">
+            <img src="https://js.cx/carousel/6.png"> 
+        </div>
+        <button id="btn1">Start</button>
+        <button id="btn2">Stop</button>
+      </div> 
+      <script>
+        let slides = document.querySelectorAll('img');
+        let tmr;
+        function startTimer() {
+          tmr = setInterval(()=>{
+          let tmp = slides[0].src;
+          slides[0].src = slides[1].src;
+          slides[1].src = slides[2].src;
+          slides[2].src = slides[3].src;
+          slides[3].src = slides[4].src;
+          slides[4].src = slides[5].src;
+          slides[5].src = tmp;
+          },2000);
+        } 
+        let start = document.querySelector('#btn1');
+        let stop = document.querySelector('#btn2');
+        start.addEventListener('click',startTimer);
+        stop.addEventListener('click',()=>{clearInterval(tmr)});
+      </script> -->
+
+      <!-- 6 ************************************************************* -->
+
+      <!-- <style>
+        table {
+          border-spacing: 0px;
+          border: 1px solid #888888;
+        }
+        table td, th{
+          text-align: center;
+           border: 1px solid #888888;
+           height: 35px;
+           width: 100px;
+           
+        }
+      </style>
+
+      <table>
+        <tr>
+          <th>Часы</th>
+          <th>Минуты</th>
+          <th>Секунды</th>
+        </tr>
+        <tr>
+          <td><span class="hour"></span></td>
+          <td><span class="minutes"></span></td>
+          <td><span class="seconds"></span></td>
+        </tr>
+      </table>
+      <script>
+        let h = document.querySelector('.hour');
+        let m = document.querySelector('.minutes');
+        let s = document.querySelector('.seconds');
+        let interval = setInterval(()=>{
+          let time = new Date();
+          h.textContent = 23 - time.getHours();
+          m.textContent = 60 - time.getMinutes();
+          s.textContent = 60 - time.getSeconds();
+        },1000);
+      </script> -->
 </body>
 </html>
